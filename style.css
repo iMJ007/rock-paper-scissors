@@ -1,0 +1,309 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: white;
+}
+
+h4 {
+    text-transform: uppercase;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    background-image: radial-gradient(ellipse at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.controlsContainer {
+    flex: 1;
+    min-width: 329px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+fieldset {
+    min-width: 50%;
+    max-width: 50%;
+    align-self: center;
+    margin-top: 3rem;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+fieldset span:first-child {
+    margin-top: .5rem;
+}
+
+fieldset span h4 {
+    flex-basis: 75%;
+    font-size: 1.2rem;
+    margin-top: -.5rem;
+}
+
+fieldset>div {
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+    background-color: white;
+    text-align: center;
+}
+
+fieldset>div h4 {
+    color: hsl(229, 64%, 46%);
+    font-weight: 200;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+fieldset>div h2 {
+    color: #515058;
+    font-weight: 900;
+    font-size: 3rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Circles */
+#polygon {
+    height: 313px;
+    width: 329px;
+    align-self: center;
+    margin: 10% 0;
+    background-image: url(images/bg-pentagon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.choiceContainer {
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.choiceContainer .innerCircle {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 0px 0px rgba(128, 128, 128, .5) inset;
+}
+
+.innerCircle img {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.scissors {
+    grid-column: 1 / 5;
+    justify-self: center;
+    margin-top: -2.5rem;
+    background-image: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 0px -3px 0px 0px #C26A27 inset;
+}
+
+.spock {
+    grid-column: 1 / 3;
+    justify-self: flex-start;
+    margin-left: -2.5rem;
+    background-image: linear-gradient(to bottom, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: 0px -3px 0px 0px #338BAA inset;
+}
+
+.paper {
+    grid-column: 3 / 5;
+    justify-self: flex-end;
+    margin-right: -2.5rem;
+    background-image: linear-gradient(to bottom, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 0px -3px 0px 0px #2b45c0 inset;
+}
+
+.lizard {
+    grid-column: 1 / 2;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-bottom: -2.5rem;
+    margin-right: -2.0rem;
+    background-image: linear-gradient(to bottom, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: 0px -3px 0px 0px rgb(94, 58, 166) inset;
+}
+
+.rock {
+    grid-column: 4 / 5;
+    justify-self: flex-start;
+    align-self: flex-end;
+    margin-bottom: -2.5rem;
+    margin-left: -2.0rem;
+    background-image: linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 0px -3px 0px 0px rgb(159, 21, 54) inset;
+}
+
+.rulesButton::before {
+    position: absolute;
+    content: "";
+    min-width: 6rem;
+    min-height: 2rem;
+    margin: -.5rem 0 0 -2rem;
+    border-radius: .4rem;
+    background-color: transparent;
+    transition: 300ms;
+}
+
+.rulesButton {
+    min-width: 6rem;
+    min-height: 2rem;
+    background-color: transparent;
+    border-radius: .4rem;
+    border: 1px solid white;
+    align-self: flex-end;
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.rulesButton:hover::before {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.25);
+    animation-name: left-in;
+    animation-duration: 500ms;
+    transform-origin: left 0%;
+}
+
+@keyframes left-in {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+#results {
+    width: 100%;
+    align-self: center;
+    display: grid;
+    margin: 10% 0;
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: 2%;
+}
+
+#playAgainContainer {
+    order: 1;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    /* TODO upar wala try kar hatane if issue occurs */
+}
+
+#compChoice {
+    order: 2;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+#userChoice {
+    order: 0;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+#results .choiceContainer {
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
+#playAgainContainer>h2 {
+    width: 100%;
+    font-size: 200%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#playAgainContainer>button {
+    width: 100%;
+    color: hsl(229, 25%, 31%);
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: .25rem;
+    border: none;
+    min-width: 6rem;
+    min-height: 2rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.choiceHolder {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 6rem;
+    width: 6rem;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.winner::before {
+    content: "";
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+    transform: translate(-15rem, -12rem);
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgb(38, 53, 84),
+            rgb(43, 56, 88) 34%,
+            rgb(36, 50, 79) 34%,
+            rgb(38, 55, 85) 52.5%,
+            rgb(34, 51, 81) 52.5%,
+            rgb(30, 43, 77));
+    z-index: -1;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, .1);
+}

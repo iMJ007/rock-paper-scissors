@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Score
+    Rules
+
+    You Picked
+    The House Picked
+
+    You Win
+    You Lose
+
+    Play Again -->
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <header></header>
+
+    <main>
+
+      <div class="controlsContainer">
+        <fieldset>
+          <span>
+            <h4>ROCK</h4>
+            <h4>PAPER</h4>
+            <h4>SCISSORS</h4>
+            <h4>LIZARD</h4>
+            <h4>SPOCK</h4>
+          </span>
+
+          <div>
+            <h4>SCORE</h4>
+            <h2 id="score">0</h2>
+          </div>
+        </fieldset>
+        <div id="polygon" class="">
+          <div class="choiceContainer scissors"><div class="innerCircle"><img src="images/icon-scissors.svg" alt="Scissors" /></div></div>
+          <div class="choiceContainer spock"><div class="innerCircle"><img src="images/icon-spock.svg" alt="Paper"></div></div>
+          <div class="choiceContainer paper"><div class="innerCircle"><img src="images/icon-paper.svg" alt="Rock"></div></div>
+          <div class="choiceContainer lizard"><div class="innerCircle"><img src="images/icon-lizard.svg" alt="Lizard"></div></div>
+          <div class="choiceContainer rock"><div class="innerCircle"><img src="images/icon-rock.svg" alt="Spocl"></div></div>
+        </div>
+
+        <div id="results" class="hidden">
+          <div id="userChoice">
+            <h4>You Picked</h4>
+            <div id="userChoiceHolder" class="choiceHolder"></div>
+          </div>
+
+          <div id="compChoice">
+            <h4>The House Picked</h4>
+            <div id="compChoiceHolder" class="choiceHolder"></div>
+          </div>
+
+          <div id="playAgainContainer">
+            <h2>You Lose</h2>
+            <button class="playAgainButton">Play Again</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="rulesButton">RULES</button>
+    </main>
+
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
