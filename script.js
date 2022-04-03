@@ -10,7 +10,13 @@ const paper = ['rock', 'spock'];
 const rock = ['lizard', 'scissors'];
 const lizard = ['paper', 'spock'];
 const spock = ['scissors', 'rock'];
-const whoBeatsWhoObject = {scissors, paper, rock, lizard, spock}
+const whoBeatsWhoObject = {
+    scissors,
+    paper,
+    rock,
+    lizard,
+    spock
+};
 
 function setUpChoiceSelectListener() {
     for (let choice of selectableOptions) {
@@ -21,22 +27,26 @@ function setUpChoiceSelectListener() {
             triggerChoiceSelect(choice, 'userChoiceHolder', true);
             triggerChoiceSelect(compSelection, 'compChoiceHolder', false);
             let winLabel = document.querySelector('#playAgainContainer>h2');
-            if (checkWinner()){
-                score++;
-                document.getElementById('score').innerText = score;
-                winLabel.innerText = 'You Win';
+            if (userChoice === compChoice) {
+                winLabel.innerText = "It's a draw!";
             } else {
-                winLabel.innerText = 'You Lose';
+                if (checkWinner()) {
+                    score++;
+                    document.getElementById('score').innerText = score;
+                    winLabel.innerText = 'You Win';
+                } else {
+                    winLabel.innerText = 'You Lose';
+                }
+                document.querySelector(`#${checkWinner() ? 'userChoiceHolder' : 'compChoiceHolder'}`).classList.add('winner');
             }
-            document.querySelector(`#${checkWinner() ? 'userChoiceHolder' : 'compChoiceHolder'}`).classList.add('winner');
         }
     }
 }
 
 function triggerChoiceSelect(choice, choiceHolderId, toggleVisibilityNow) {
-        if (toggleVisibilityNow) {
-            toggleVisibility();
-        }
+    if (toggleVisibilityNow) {
+        toggleVisibility();
+    }
     let chosenOption = choice.cloneNode(true);
     chosenOption.onclick = "";
     let choiceContainer = document.querySelector(`#${choiceHolderId}`);

@@ -4,6 +4,7 @@
     padding: 0;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: white;
+    transition: 300ms;
 }
 
 h4 {
@@ -17,6 +18,7 @@ body {
     justify-content: space-evenly;
     align-items: stretch;
     background-image: radial-gradient(ellipse at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    overflow-y: auto;
 }
 
 main {
@@ -185,7 +187,7 @@ fieldset>div h2 {
     border: 1px solid white;
     align-self: flex-end;
     margin: 1rem;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
 }
@@ -306,4 +308,77 @@ fieldset>div h2 {
             rgb(30, 43, 77));
     z-index: -1;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, .1);
+}
+
+@media screen and (max-width: 767px) {
+    fieldset {
+        max-width: 75%;
+        min-width: 75%;
+    }
+
+    #playAgainContainer {
+        order: 2;
+        align-self: center;
+        text-align: center;
+        justify-self: center;
+        width: 100%;
+        grid-column: 1 / 3;
+        /* TODO upar wala try kar hatane if issue occurs */
+    }
+
+    #compChoice {
+        order: 1;
+        align-self: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #userChoice {
+        order: 0;
+        align-self: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #results {
+        grid-template-columns: 1fr 1fr;
+        padding: 5%;
+        gap: 4rem 2rem;
+    }
+
+    #polygon {
+        height: 313px;
+        width: 329px;
+        padding: 5%
+    }
+
+    footer {
+        min-height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .rulesButton {
+        display: absolute;
+        min-width: 6rem;
+        min-height: 2rem;
+        background-color: transparent;
+        border-radius: .4rem;
+        border: 1px solid white;
+        align-self: flex-end;
+        margin: 0;
+        margin-bottom: 5%;
+        position: absolute;
+        bottom: 0;
+        right: calc(50% - 3rem);
+    }
 }
