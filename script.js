@@ -5,6 +5,9 @@ let polygon = document.querySelector('#polygon')
 let userChoice = null;
 let compChoice = null;
 let playAgainButton = document.querySelector('.playAgainButton');
+let rulesButton = document.querySelector('.rulesButton');
+let closeRuleButton = document.querySelector('.closeButton');
+
 const scissors = ['paper', 'lizard'];
 const paper = ['rock', 'spock'];
 const rock = ['lizard', 'scissors'];
@@ -67,5 +70,19 @@ function checkWinner() {
     return whoBeatsWhoObject[userChoice].includes(compChoice);
 }
 
+function toggleRulesModal(event){
+    let modal = document.querySelector('.modal');
+    if (event.target === rulesButton){
+        modal.style.visibility = 'visible';
+        modal.style.opacity = '1';
+    } else {
+        modal.style.visibility = 'hidden';
+        modal.style.opacity = '0';
+    }
+}
+
 playAgainButton.onclick = toggleVisibility;
+rulesButton.onclick = toggleRulesModal;
+closeButton.onclick = toggleRulesModal;
+
 setUpChoiceSelectListener();
