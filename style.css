@@ -355,9 +355,10 @@ fieldset>div h2 {
     }
 
     #polygon {
-        height: 313px;
-        width: 329px;
-        padding: 5%
+        height: 300px;
+        width: 315px;
+        padding: 5%;
+        align-self: center;
     }
 
     footer {
